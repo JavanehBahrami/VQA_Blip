@@ -1,0 +1,24 @@
+# Transformers library for BLIP-2 and other Hugging Face models
+transformers>=4.35.0
+
+# Torch for PyTorch (supports GPU if available)
+torch>=2.1.0
+
+# Torchvision for image processing utilities
+torchvision>=0.16.0
+
+# PIL / Pillow for image I/O
+Pillow>=10.0.0
+
+# Hugging Face Hub (for authentication and model downloading)
+huggingface_hub>=0.18.0
+
+# Optional: tqdm for progress bars
+tqdm>=4.66.0
+
+# Optional: deep-translator if you plan to translate questions/answers
+deep-translator>=1.11.4
+
+# Optional: numpy (sometimes used internally in image manipulations)
+numpy>=1.26.0
+

@@ -2,12 +2,24 @@ import os
 from PIL import Image
 import torch
 from transformers import Blip2Processor, Blip2ForConditionalGeneration
+from huggingface_hub import login
+
+# -------------------------------
+# 0. Hugging Face login (safe)
+# -------------------------------
+# Set your HF token as environment variable first:
+# In terminal or Colab: export HF_TOKEN=your_token_here
+hf_token = os.getenv("HF_TOKEN")
+if hf_token:
+    login(token=hf_token)
+else:
+    print("⚠️ Warning: No HF_TOKEN found. Make sure you set it before running this script.")
 
 # -------------------------------
 # 1. Configuration
 # -------------------------------
 # Set paths relative to repo root
-IMAGE_FOLDER = os.path.join(os.path.dirname(os.path.dirname(__file__)), "images")
+IMAGE_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "images")
 IMAGE_NAME = "horses.jpg"
 IMAGE_PATH = os.path.join(IMAGE_FOLDER, IMAGE_NAME)
 
@@ -18,10 +30,11 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # 2. Load processor and model
 # -------------------------------
 print("Loading processor and model...")
-processor = Blip2Processor.from_pretrained(MODEL_NAME)
+processor = Blip2Processor.from_pretrained(MODEL_NAME, use_auth_token=hf_token)
 model = Blip2ForConditionalGeneration.from_pretrained(
     MODEL_NAME,
-    device_map="auto" if DEVICE=="cuda" else None
+    device_map="auto" if DEVICE == "cuda" else None,
+    use_auth_token=hf_token
 )
 print(f"Model loaded on {DEVICE} ✅")
 
@@ -55,4 +68,5 @@ for question in questions:
 
     print("\n🟢 Question:", question)
     print("🔵 Answer:", answer)
+
 
