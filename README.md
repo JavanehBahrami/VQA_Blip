@@ -7,6 +7,12 @@ This project demonstrates the application of Visual Language Models (VLMs), spec
 
 This repository also serves as a practical example for integrating VLMs into projects, showcasing how visual and textual reasoning can be combined in a single model. It’s designed to work on GPU-enabled environments like Google Colab.
 
+## Demo image
+
+<p align="center">
+  <img src="assets/Demo_VQA_VLM.jpg" alt="VQA VLM Demo" width="600"/>
+</p>
+
 
 ## Root Structure
 The directory structure of this repository is organized as follows:
