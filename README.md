@@ -10,7 +10,7 @@ This repository also serves as a practical example for integrating VLMs into pro
 ## Demo image
 
 <p align="center">
-  <img src="assets/Demo_VQA_VLM.jpg" alt="VQA VLM Demo" width="600"/>
+  <img src="Demo_VQA_VLM.jpg" alt="VQA VLM Demo" width="600"/>
 </p>
 
 
